@@ -1,15 +1,13 @@
-
-You have a captain's log due before 2023-04-23 (in 1 day)! Log it now!
-You just released the advanced tasks of this project. Have fun!
 0x11. C - printf
-C
-Group project
+
+C   Group project
  By: Julien Barbier, co-founder & CEO
  Weight: 5
  Project to be done in teams of 2 people (your team: Cy MERCY, Lloyd Ishiekwene)
  Project will start Apr 21, 2023 6:00 AM, must end by Apr 26, 2023 6:00 AM
  Checker will be released at Apr 22, 2023 12:00 PM
  An auto review will be launched at the deadline
+
 Concepts
 For this project, we expect you to look at these concepts:
 
@@ -22,8 +20,6 @@ Write your own printf function.
 
 
 
-^ In this picture, Kris, and Jul
-
 Resources
 Read or watch:
 
@@ -31,9 +27,9 @@ Secrets of printf
 Group Projects concept page (Don’t forget to read this)
 Flowcharts concept page
 man or help:
-
 printf (3)
-Requirements
+
+REQUIREMENTS
 General
 Allowed editors: vi, vim, emacs
 All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
@@ -47,6 +43,7 @@ The prototypes of all your functions should be included in your header file call
 Don’t forget to push your header file
 All your header files should be include guarded
 Note that we will not provide the _putchar function for this project
+
 GitHub
 There should be one project repository per group. The other members do not fork or clone the project to ensure only one of the team has the repository in their github account otherwise you risk scoring 0%
 
@@ -59,12 +56,15 @@ va_start (man 3 va_start)
 va_end (man 3 va_end)
 va_copy (man 3 va_copy)
 va_arg (man 3 va_arg)
+
 Compilation
 Your code will be compiled this way:
 $ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
 Our main files will include your main header file (main.h): #include main.h
-You might want to look at the gcc flag -Wno-format when testing with your _printf and the standard printf. Example of test file that you could use:
+You might want to look at the gcc flag -Wno-format when testing with your _printf and the standard printf. 
+Example of test file that you could use:
+
 alex@ubuntu:~/c/printf$ cat main.c 
 #include <limits.h>
 #include <stdio.h>
@@ -137,14 +137,18 @@ Len:[12]
 Unknown:[%r]
 Unknown:[%r]
 alex@ubuntu:~/c/printf$
+
 We strongly encourage you to work all together on a set of tests
 If the task does not specify what to do with an edge case, do the same as printf
+
 Copyright - Plagiarism
 You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
 You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
 You are not allowed to publish any content of this project.
 Any form of plagiarism is strictly forbidden and will result in removal from the program.
+
 Tasks
+
 0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
 mandatory
 Write a function that produces output according to a format.
@@ -165,6 +169,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 1. Education is when you read the fine print. Experience is what you get if you don't
 mandatory
 Handle the following conversion specifiers:
@@ -179,11 +184,13 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 2. With a face like mine, I do better in print
 #advanced
 Handle the following custom conversion specifiers:
 
 b: the unsigned int argument is converted to binary
+
 alex@ubuntu:~/c/printf$ cat main.c
 #include "main.h"
 
@@ -205,6 +212,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help
+
 3. What one has not experienced, one will never understand in print
 #advanced
 Handle the following conversion specifiers:
@@ -221,6 +229,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 4. Nothing in fine print is ever good news
 #advanced
 Use a local buffer of 1024 chars in order to call write as little as possible.
@@ -235,6 +244,7 @@ Handle the following custom conversion specifier:
 
 S : prints the string.
 Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+
 alex@ubuntu:~/c/printf$ cat main.c
 #include "main.h"
 
@@ -248,14 +258,17 @@ int main(void)
     _printf("%S\n", "Best\nSchool");
     return (0);
 }
+
 alex@ubuntu:~/c/printf$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 main.c
 alex@ubuntu:~/c/printf$ ./a.out
 Best\x0ASchool
 alex@ubuntu:~/c/printf$
+
 Repo:
 
 GitHub repository: printf
  Done?   Help
+
 6. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print
 #advanced
 Handle the following conversion specifier: p.
@@ -268,6 +281,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 7. The big print gives and the small print takes away
 #advanced
 Handle the following flag characters for non-custom conversion specifiers:
@@ -291,6 +305,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 9. Print some money and give it to us for the rain forests
 #advanced
 Handle the field width for non-custom conversion specifiers.
@@ -307,6 +322,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 11. It's depressing when you're still around and your albums are out of print
 #advanced
 Handle the 0 flag character for non-custom conversion specifiers.
@@ -315,6 +331,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 12. Every time that I wanted to give up, if I saw an interesting textile, print what ever, suddenly I would see a collection
 #advanced
 Handle the - flag character for non-custom conversion specifiers.
@@ -323,6 +340,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 13. Print is the sharpest and the strongest weapon of our party
 #advanced
 Handle the following custom conversion specifier:
@@ -332,6 +350,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 14. The flood of print has turned reading into a process of gulping rather than savoring
 #advanced
 Handle the following custom conversion specifier:
@@ -341,6 +360,7 @@ Repo:
 
 GitHub repository: printf
  Done?   Help   Get a sandbox
+
 15. *
 #advanced
 All the above options work well together.
