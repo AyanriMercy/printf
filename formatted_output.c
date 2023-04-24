@@ -10,18 +10,9 @@
 int func_d(char *buff, int count, va_list value)
 {
 	int base = 10;
-	int n = va_arg(value, int);
-	char *string = malloc(sizeof(char) * 12);
+	char *string = _itoa(va_arg(value, int), base);
 
-	if (!string)
-		return (-1);
-
-	snprintf(string, 12, "%d", n);
-
-	int bytes_written = _assign(buff, count, string);
-
-	free(string);
-	return (bytes_written);
+	return (_assign(buff, count, string));
 }
 
 /**
@@ -36,13 +27,7 @@ int func_i(char *buff, int count, va_list value)
 	int base = 10;
 	char *string = _itoa(va_arg(value, int), base);
 
-	if (!string)
-		return (-1);
-
-	count = _assign(buff, count, string);
-
-	free(string);
-	return (count);
+	return (_assign(buff, count, string));
 }
 
 /**
@@ -59,13 +44,7 @@ int func_u(char *buff, int count, va_list value)
 	unsigned int integer = va_arg(value, unsigned int);
 	char *string = _utoa(integer, base);
 
-	if (!string)
-		return (-1);
-
-	count = _assign(buff, count, string);
-
-	free(string);
-	return (count);
+	return (_assign(buff, count, string));
 }
 
 /**
@@ -82,13 +61,7 @@ int func_o(char *buff, int count, va_list value)
 	unsigned int integer = va_arg(value, unsigned int);
 	char *string = _utoa(integer, base);
 
-	if (!string)
-		return (-1);
-
-	count = _assign(buff, count, string);
-
-	free(string);
-	return (count);
+	return (_assign(buff, count, string));
 }
 
 /**
@@ -105,11 +78,5 @@ int func_x(char *buff, int count, va_list value)
 	unsigned int integer = va_arg(value, unsigned int);
 	char *string = _lcutoa(integer, base);
 
-	if (!string)
-		return (-1);
-
-	count = _assign(buff, count, string);
-
-	free(string);
-	return (count);
+	return ( _assign(buff, count, string));
 }

@@ -36,12 +36,13 @@ char *rot13(char *word)
  */
 char *_reverse(char *s, int n)
 {
-	if (s == NULL)
-		return (NULL);
-
-	int i, j;
+	int i = 0;
+	int j;
 	char temp;
 
+	if (s == NULL)
+		return (NULL);
+	
 	for (i = 0, j = n - 1; i < j; i++, j--)
 	{
 		temp = s[i];

@@ -9,18 +9,12 @@
  */
 int func_b(char *buff, int count, va_list value)
 {
-	unsigned int integer = va_arg(value, unsigned int);
-	char *string = malloc(sizeof(char) * (32 + 1));
-	int index;
+	unsigned int integer;
+	char *string;
+	int index = 2;
 
-	if (!string)
-		return (-1);
-
-	for (index = 31; index >= 0; index--)
-	{
-		string[index] = (integer & 1) + '0';
-		integer >>= 1;
-	}
+	integer = va_arg(value, unsigned int);
+	string = _utoa(integer, index);
 
 	return (_assign(buff, count, string));
 }
@@ -35,7 +29,7 @@ int func_b(char *buff, int count, va_list value)
 int func_r(char *buff, int count, va_list value)
 {
 	char *string = va_arg(value, char *);
-	int length = _strlen(str);
+	int length = _strlen(string);
 	int index;
 
 	for (index = 0; index < length / 2; index++)
