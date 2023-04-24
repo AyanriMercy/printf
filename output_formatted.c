@@ -15,9 +15,6 @@ int func_X(char *buff, int count, va_list value)
 	int i;
 	char *string = _utoa(integer, base);
 
-	if (!string)
-		return (-1);
-
 	i = 0;
 	for (i = 0; string[i]; i++)
 	{
@@ -25,10 +22,7 @@ int func_X(char *buff, int count, va_list value)
 			string[i] = string[i] - 'a' + 'A';
 	}
 
-	count = _assign(buff, count, string);
-
-	free(string);
-	return (count);
+	return (_assign(buff, count, string));
 }
 
 /**
@@ -79,20 +73,16 @@ int func_s(char *buff, int count, va_list value)
 int func_R(char *buff, int count, va_list value)
 {
 	char *string = va_arg(value, char *);
-	char *enc_string = malloc(sizeof(char) * (_strlen(string) + 1));
-
-	if (!enc_string)
-		return (-1);
+	char *enc_string = malloc(_strlen(string) + 1);
 
 	_strcpy(enc_string, string);
 	rot13(enc_string);
 
 	count = _assign(buff, count, enc_string);
-
 	free(enc_string);
+
 	return (count);
 }
-
 /**
  * func_ptg - adds a '%' character to buff and returns updated count
  * @buff: pointer to buff
