@@ -22,6 +22,7 @@ int (*check_param(char specifier))(char *, int, va_list)
 		{"b", func_b},
 		{"R", func_R},
 		{"r", func_r},
+		{"p", func_p},
 		{NULL, NULL}
 	};
 

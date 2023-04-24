@@ -48,3 +48,22 @@ int func_r(char *buff, int count, va_list value)
 
 	return (_assign(buff, count, string));
 }
+
+/**
+ * func_p - prints a pointer address in memory
+ * @buff: pointer to character array where output of fucntion will be stored
+ * @count: integer current count of characters in buffer
+ * @value: va_list containing a pointer to value to be printed as address
+ * Return: new count of characters in the buffer after address is printed
+ */
+int func_p(char *buff, int count, va_list value)
+{
+	void *ptr = va_arg(value, void *);
+	unsigned long int num = (unsigned long int) ptr;
+	char *hex_string = _utoa(num, NULL, 16);
+
+	count = _assign(buff, count, "0x");
+	count = _assign(buff, count, hex_string);
+
+	return (count);
+}
