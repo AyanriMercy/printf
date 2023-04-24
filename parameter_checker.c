@@ -15,7 +15,7 @@ int (*check_param(char specifier))(char *, int, va_list)
 		{"u", func_u},
 		{"o", func_o},
 		{"x", func_x},
-		{"X"' func_X},
+		{"X", func_X},
 		{"c", func_c},
 		{"s", func_s},
 		{"%", func_ptg},
