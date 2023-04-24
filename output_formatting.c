@@ -52,7 +52,12 @@ int func_r(char *buff, int count, va_list value)
  */
 int func_p(char *buff, int count, va_list value)
 {
-	void *ptr = va_arg(value, void *);
-	int len = sprintf(buff, "%p", ptr);
-	return (len);
+	int base = 16;
+	void *ptr;
+	char *str;
+
+	ptr = va_arg(value, void*);
+	str = _ultoa((unsigned long)ptr, base);
+
+	return (_assign(buff, count, string));
 }

@@ -145,3 +145,34 @@ char *_lcutoa(unsigned int value, unsigned int base)
 
 	return (_reverse(buffer, index));
 }
+
+
+/**
+ * _uloa - Converts an unsigned long integer to a string representation in the
+ * unspecified base
+ * @value: the unsigned long integer value to convert.
+ * @base: The base to use for the conversion. Must be between 2 and 36 inclusiv
+ * Return: pointer to the string representation of the unsigned long integer
+ * value in the specified base
+ */
+char *_uloa(unsigned long value, int base)
+{
+	static char buffer[32] = {0};
+	int index = 0;
+
+	while (value != 0)
+	{
+		unsigned long digit = value % base;
+		buffer[index++] = (digit < 10) ? digit + '0' : digit - 10 + 'a';
+		value /= base;
+	}
+	
+	if (index == 0)
+	{
+		buffer[index++] = '0';
+	}
+	
+	buffer[index] = '\0';
+	
+	return (_reverse(buffer, i));
+}
