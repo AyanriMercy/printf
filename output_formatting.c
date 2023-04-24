@@ -35,7 +35,7 @@ int func_b(char *buff, int count, va_list value)
 int func_r(char *buff, int count, va_list value)
 {
 	char *string = va_arg(value, char *);
-	int length = _strlen(str);
+	int length = _strlen(string);
 	int index;
 
 	for (index = 0; index < length / 2; index++)

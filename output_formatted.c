@@ -12,12 +12,14 @@ int func_X(char *buff, int count, va_list value)
 {
 	int base = 16;
 	unsigned int integer = va_arg(value, unsigned int);
+	int i;
 	char *string = _utoa(integer, base);
 
 	if (!string)
 		return (-1);
 
-	for (int i = 0; string[i]; i++)
+	i = 0;
+	for (i = 0; string[i]; i++)
 	{
 		if (string[i] >= 'a' && string[i] <= 'f')
 			string[i] = string[i] - 'a' + 'A';
@@ -62,7 +64,7 @@ int func_s(char *buff, int count, va_list value)
 	char *string = va_arg(value, char *);
 
 	if (!string)
-		str = "(null)";
+		string = "(null)";
 
 	return (_assign(buff, count, string));
 }
@@ -83,7 +85,7 @@ int func_R(char *buff, int count, va_list value)
 		return (-1);
 
 	_strcpy(enc_string, string);
-	_rot13(enc_string);
+	rot13(enc_string);
 
 	count = _assign(buff, count, enc_string);
 
@@ -102,19 +104,6 @@ int func_ptg(char *buff, int count, va_list value)
 {
 	(void)value;
 
-	if (count < BUFFER_SIZE - 1)
-	{
-		buff[count++] = '%';
-		buff[count] = '\0';
-	}
-	else
-	{
-		buff[count] = '\0';
-		write_buffer(buff);
-		count = 0;
-		buff[count++] = '%';
-		buff[count] = '\0';
-	}
-
-	return (count);
+	buff[0] = '%';
+	return (count + 1);
 }

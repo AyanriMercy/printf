@@ -21,8 +21,7 @@ int _printf(const char *format, ...)
 		free(buff);
 		return (-1);
 	}
-	va_start(args, value);
-
+	va_start(args, format);
 	while (format[index])
 	{
 		if (format[index] != '%')
@@ -34,8 +33,10 @@ int _printf(const char *format, ...)
 		{
 			func = check_param(format[index + 1]);
 			if (!func)
+			{
 				buff[count] = '%';
 				count++;
+			}
 			else
 				count = func(&buff[count], count, args);
 			index++;
