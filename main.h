@@ -27,6 +27,7 @@ int func_R(char *buff, int count, va_list value);
 int func_ptg(char *buff, int count, va_list value);
 int func_b(char *buff, int count, va_list value);
 int func_r(char *buff, int count, va_list value);
+int func_p(char *buff, int count, va_list value);
 
 /* NUMBER FUNCTIONS */
 
