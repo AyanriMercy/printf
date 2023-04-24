@@ -53,11 +53,6 @@ int func_r(char *buff, int count, va_list value)
 int func_p(char *buff, int count, va_list value)
 {
 	void *ptr = va_arg(value, void *);
-	unsigned long int num = (unsigned long int) ptr;
-	char *hex_string = _utoa(num, NULL, 16);
-
-	count = _assign(buff, count, "0x");
-	count = _assign(buff, count, hex_string);
-
-	return (count);
+	int len = sprintf(buff, "%p", ptr);
+	return (len);
 }
