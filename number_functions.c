@@ -174,5 +174,5 @@ char *_uloa(unsigned long value, int base)
 	
 	buffer[index] = '\0';
 	
-	return (_reverse(buffer, i));
+	return (_reverse(buffer, index));
 }
