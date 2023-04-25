@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			func = check_param(format[index + 1]);
+			func = check_prtr(format[index + 1]);
 			if (!func)
 			{
 				buff[count] = '%';
