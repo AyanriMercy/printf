@@ -61,3 +61,32 @@ int func_p(char *buff, int count, va_list value)
 
 	return (_assign(buff, count, string));
 }
+
+/**
+ * func_S - Converts a string to a printed format
+ * @buff: Buffer to store the converted string
+ * @count: Maximum number of characters to write to the buffer
+ * @value: A va_list containing the string to be converted.
+ * Return: The number of characters written to the buffer.
+*/
+int func_S(char *buff, int count, va_list value)
+{
+	unsigned int integer;
+	char *string;
+	int index = 0;
+
+	string = va_arg(value, char *);
+
+	if (_strlen(string) < count)
+	{
+		_strcpy(buff, string);
+		index = _strlen(string);
+	}
+	else
+	{
+		_strncpy(buff, string, count);
+		index = count;
+	}
+
+	return (index);
+}

@@ -148,31 +148,52 @@ char *_lcutoa(unsigned int value, unsigned int base)
 
 
 /**
- * _uloa - Converts an unsigned long integer to a string representation in the
- * unspecified base
- * @value: the unsigned long integer value to convert.
- * @base: The base to use for the conversion. Must be between 2 and 36 inclusiv
- * Return: pointer to the string representation of the unsigned long integer
- * value in the specified base
+ * convert_ubase - Converts an unsigned long to an inputted base and
+ *                 stores the result to a buffer contained in a struct.
+ * @output: A buffer_t struct containing a character array.
+ * @num: An unsigned long to be converted.
+ * @base: A pointer to a string containing the base to convert to.
+ * @flags: Flag modifiers.
+ * @wid: A width modifier.
+ * @prec: A precision modifier.
+ *
+ * Return: The number of bytes stored to the buffer.
  */
-char *_uloa(unsigned long value, int base)
+unsigned int convert_ubase(buffer_t *output, unsigned long int num, char *base,
+		unsigned char flags, int wid, int prec)
 {
-	static char buffer[32] = {0};
-	int index = 0;
+	unsigned int size, ret = 1;
+	char digit, pad = '0', *lead = "0x";
 
-	while (value != 0)
+	for (size = 0; *(base + size);)
+		size++;
+
+	if (num >= size)
+		ret += convert_ubase(output, num / size, base,
+				flags, wid - 1, prec - 1);
+
+	else
 	{
-		unsigned long digit = value % base;
-		buffer[index++] = (digit < 10) ? digit + '0' : digit - 10 + 'a';
-		value /= base;
+		if (((flags >> 5) & 1) == 1)
+		{
+			wid -= 2;
+			prec -= 2;
+		}
+		for (; prec > 1; prec--, wid--)
+			ret += _memcpy(output, &pad, 1);
+
+		if (NEG_FLAG == 0)
+		{
+			pad = (ZERO_FLAG == 1) ? '0' : ' ';
+			for (; wid > 1; wid--)
+				ret += _memcpy(output, &pad, 1);
+		}
+		if (((flags >> 5) & 1) == 1)
+			ret += _memcpy(output, lead, 2);
 	}
-	
-	if (index == 0)
-	{
-		buffer[index++] = '0';
-	}
-	
-	buffer[index] = '\0';
-	
-	return (_reverse(buffer, index));
+
+	digit = base[(num % size)];
+	_memcpy(output, &digit, 1);
+
+	return (ret);
 }
