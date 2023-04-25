@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * check_param - selects the appropriate conversion function
+ * check_prtr - selects the appropriate conversion function
  * @specifier: the format specifier character
  * Return: pointer to the corresponding conversion function
  */
@@ -17,12 +17,11 @@ int (*check_prtr(char specifier))(char *, int, va_list)
 		{"x", func_x},
 		{"X", func_X},
 		{"c", func_c},
-		{"s", func_s},
 		{"%", func_ptg},
 		{"b", func_b},
 		{"R", func_R},
 		{"r", func_r},
-		{"S", func_S},
+		{"s", func_s},
 		{"p", func_p},
 		{NULL, NULL}
 	};
