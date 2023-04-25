@@ -5,7 +5,7 @@
  * @specifier: the format specifier character
  * Return: pointer to the corresponding conversion function
  */
-int (*check_param(char specifier))(char *, int, va_list)
+int (*check_prtr(char specifier))(char *, int, va_list)
 {
 	int byte = 0;
 
