@@ -3,10 +3,7 @@
 C   Group project
  By: Julien Barbier, co-founder & CEO
  Weight: 5
- Project to be done in teams of 2 people (your team: Cy MERCY, Lloyd Ishiekwene)
- Project will start Apr 21, 2023 6:00 AM, must end by Apr 26, 2023 6:00 AM
- Checker will be released at Apr 22, 2023 12:00 PM
- An auto review will be launched at the deadline
+ Project to be done in teams of 2 people (your team: Cy MERCY, Lloyd ISHIEKWENE)
 
 Concepts
 For this project, we expect you to look at these concepts:
